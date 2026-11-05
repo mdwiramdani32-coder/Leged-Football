@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Rumah Hantu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="game.css">
+</head>
+<body>
+  <main class="room" id="room">
+    <div class="room-light" id="roomLight"></div>
+    <div class="fireflies" id="fireflies"></div>
+    <div class="prompt">Pull the lamp string<i></i></div>
+
+    <section class="lamp-side">
+      <div class="lamp-container" id="lampContainer">
+        <div class="lamp-glow"></div>
+        <div class="lamp-head"></div>
+        <div class="light-beam"></div>
+        <div class="lamp-stem"></div>
+        <div class="lamp-base"></div>
+        <div class="desk-surface"></div>
+
+        <svg class="string-svg" aria-hidden="true">
+          <path id="stringPath" d="M 0 0 L 0 80"></path>
+        </svg>
+
+        <div class="string-handle" id="stringHandle" aria-label="Pull lamp string"></div>
+      </div>
+    </section>
+
+    <section class="login-side">
+      <form class="glass login-card" id="loginForm" novalidate>
+        <div class="glass-line"></div>
+
+        <div class="login-heading">
+          <h2>Welcome Back</h2>
+          <p>Enter your details to access your account</p>
+        </div>
+
+        <div class="inputs">
+          <label class="input-wrap">
+            <span class="input-icon user-icon" aria-hidden="true"></span>
+            <input type="text" id="username" placeholder="Username" autocomplete="username">
+          </label>
+
+          <label class="input-wrap">
+            <span class="input-icon mail-icon" aria-hidden="true"></span>
+            <input type="email" id="email" placeholder="Email Address" autocomplete="email">
+          </label>
+
+          <label class="input-wrap">
+            <span class="input-icon lock-icon" aria-hidden="true"></span>
+            <input type="password" id="password" placeholder="Password" autocomplete="current-password">
+          </label>
+        </div>
+
+        <p class="form-msg" id="formMsg" role="alert" aria-live="polite"></p>
+
+        <button class="sign-in" type="submit">Sign In</button>
+
+        <div class="divider">
+          <span></span>
+          <b>OR CONTINUE WITH</b>
+          <span></span>
+        </div>
+
+        <div class="socials">
+          <button class="social-btn" type="button" data-provider="Google">
+            <span class="google-icon">G</span> Google
+          </button>
+          <button class="social-btn" type="button" data-provider="GitHub">
+            <span class="github-icon">●</span> GitHub
+          </button>
+        </div>
+      </form>
+    </section>
+
+  </main>
+
+  <!-- Layar game: tersembunyi sampai login berhasil -->
+  <div id="gameScreen" hidden>
+<canvas id="c"></canvas><div id="v"></div><div id="r"></div><div id="h"></div><div id="sb"><i id="si"></i></div><button id="sbn">LARI</button><button id="eb" class="mb">SEMBUNYI</button><button id="fb" class="mb">SENTER</button><button id="gb" class="mb">TEMBAK</button>
+<div id="o">
+<p id="who"></p>
+<h1 id="t">RUMAH HANTU</h1>
+<p id="m">Selesaikan misi: kumpulkan 3 benda, ambil kunci, lalu kabur lewat pintu merah. Ada hantu yang memburumu!</p>
+<canvas id="g" width="256" height="256"></canvas>
+<p>Pilih tempat:</p><div id="ml"></div>
+<p>Pilih hantu:</p><div id="gl"></div>
+<label class="b s" for="f">Pakai foto sendiri</label>
+<input id="f" type="file" accept="image/*">
+<p>Suara hantu:</p><div id="sl"></div>
+<label class="b s" for="sf">Pakai suara sendiri (mp3/wav)</label><input id="sf" type="file" accept="audio/*"><button class="b s" id="rc">Rekam suara (mikrofon)</button><p id="sn" style="font-size:12px"></p>
+<p>Volume suara hantu: <input id="sv" type="range" min="0" max="150" value="100"></p><button class="b s" id="tst">Tes suara hantu</button>
+<button class="b" id="go">MAIN</button>
+<p>HP: sisi kiri layar = jalan, sisi kanan = melihat.<br>PC: WASD / panah untuk jalan, Shift untuk lari, seret mouse untuk melihat.<br>HP: tombol LARI, SENTER, SEMBUNYI, TEMBAK di kanan bawah.<br>Tembak hantu agar pingsan (peluru terbatas, cari kotak peluru oranye).<br>PC: E = sembunyi (lemari/semak/loker), F = senter, SPASI = tembak.<br>Nyalakan suara dan pakai headset!</p>
+<button class="b s" id="logout">Keluar</button>
+</div>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
